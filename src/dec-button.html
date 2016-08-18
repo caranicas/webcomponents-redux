@@ -1,0 +1,41 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="dec-button">
+
+  <template>
+    <paper-button id="decrement" on-tap="handleClick" raised>[[title]]</paper-button>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'dec-button',
+      behaviors: [ ReduxBehavior ],
+
+      properties: {
+
+        title: {
+          type: String,
+          value:'DECREASE'
+        }
+      },
+
+      actions: {
+        decCount: function() {
+          return {
+            type: 'DEC_COUNT'
+          };
+        }
+      },
+
+      handleClick: function() {
+        return this.dispatch('decCount');
+      }
+
+    });
+
+  </script>
+
+</dom-module>

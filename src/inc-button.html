@@ -1,0 +1,41 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="inc-button">
+
+  <template>
+    <paper-button id="increment" on-tap="handleClick" raised>[[title]]</paper-button>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'inc-button',
+      behaviors: [ ReduxBehavior ],
+
+      properties: {
+
+        title: {
+          type: String,
+          value:'INCREASE'
+        }
+      },
+
+      actions: {
+        incCount: function() {
+          return {
+            type: 'INC_COUNT'
+          };
+        }
+      },
+
+      handleClick: function() {
+        return this.dispatch('incCount');
+      }
+
+    });
+
+  </script>
+
+</dom-module>

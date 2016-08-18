@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="./inc-button.html">
+<link rel="import" href="./dec-button.html">
+
+<dom-module id="button-tray">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        position: relative;
+        padding:20px;
+        border: solid 1px rgba(100,100,100,0.7);
+        border-radius: 8px;
+        width: 200px;
+      }
+    </style>
+
+    <dec-button></dec-button>
+    <inc-button></inc-button>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'button-tray'
+    });
+
+  </script>
+
+</dom-module>

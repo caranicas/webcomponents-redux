@@ -1,0 +1,22 @@
+{
+  "name": "polymer-and-redux",
+  "version": "0.0.1",
+  "description": "Using redux style bindings with web components",
+  "repository": "https://github.com/caranicas/poymer-redux",
+  "main": "index.html",
+  "scripts": {
+    "getdeps": "bower install && npm install",
+    "start": "polymer serve",
+    "build": "polymer build",
+    "tets": "polymer test"
+  },
+  "author": "Kendrick Caranicas",
+  "license": "MIT",
+  "engines": {
+    "node": "6.x"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "redux": "^3.5.2"
+  }
+}

@@ -1,0 +1,76 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="./button-tray.html">
+
+
+<dom-module id="app-main">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        position: relative;
+        padding:20px;
+      }
+
+      #counter {
+        padding:20px;
+        background-color: rgba(140,140,140,0.7);
+        width: 200px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+      }
+
+    </style>
+
+    <h2>[[title]]</h2>
+    <div id="counter">
+      <p>The current count is: <span>[[count]]</span></p>
+    </div>
+    <button-tray> <button-tray/>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'app-main',
+      behaviors: [ ReduxBehavior ],
+
+      properties: {
+
+        title: {
+          type: String,
+          value:' POLYMER AND REDUX'
+        },
+
+        count:{
+          type: Number,
+          statePath: function(state){return state.get('count');},
+          notify: false
+        }
+      },
+
+      actions: {
+        incCount: function() {
+          return {
+            type: 'INC_COUNT'
+          };
+        },
+        decCount: function() {
+          return {
+            type: 'DEC_COUNT'
+          };
+        }
+      },
+
+      created: function() {
+        let state = this.getState();
+        this.removeAttribute('unresolved');
+      }
+
+    });
+
+  </script>
+
+</dom-module>
